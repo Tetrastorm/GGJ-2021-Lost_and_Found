@@ -128,7 +128,7 @@ void APlayerCharacter::Sprint()
 
 void APlayerCharacter::Aim()
 {
-	bTargetingAction = !bTargetingAction;
+	//bTargetingAction = !bTargetingAction;
 }
 
 void APlayerCharacter::Shot()
