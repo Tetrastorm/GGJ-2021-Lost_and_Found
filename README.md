@@ -34,7 +34,7 @@ The player is lost in a mirror donjon, he will use a portal gun to escape of the
 ### How to launch
 
 - Download the game excutable
-- Decompress him
+- Decompress him (use 7zip for that)
 - In the decompressed folder, clic on .exe file
 - Enjoy
 
