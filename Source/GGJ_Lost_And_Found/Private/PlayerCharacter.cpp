@@ -145,8 +145,7 @@ void APlayerCharacter::Shot()
 		GLog->Log(Hit.ToString());
 		if (Hit.bBlockingHit) {
 			GetWorld()->SpawnActor<APortalActor>(PortalClass, Hit.Location, FRotator::ZeroRotator);
-		}
-		else {
+		} else {
 			GLog->Log(this->GetName() + " : Raytracing -No Actor Hit-");
 		}
 	}
