@@ -53,10 +53,12 @@ void APortalActor::TriggerEnter(class UPrimitiveComponent* HitComponent, class A
 
 			UGameplayStatics::GetAllActorsOfClass(GetWorld(), APortalActor::StaticClass(), Portals);
 			if (PlayerCharacter != nullptr && Portals.Num() > 0) {
-				for (auto& Portal : Portals) {
-					if (Portal != this) {
-						APortalActor* PortalActor = Cast<APortalActor>(Portal);
+				while (true) {
+					int i = FMath::RandRange(0, Portals.Num() - 1);
+					GLog->Log(FString::FromInt(i));
+					APortalActor* PortalActor = Cast<APortalActor>(Portals[i]);
 
+					if (PortalActor != this && PortalActor[i].LevelToLoad == "") {
 						PortalActor->bCanTrigger = false;
 						PlayerCharacter->SetActorLocation(PortalActor->GetActorLocation());
 						break;

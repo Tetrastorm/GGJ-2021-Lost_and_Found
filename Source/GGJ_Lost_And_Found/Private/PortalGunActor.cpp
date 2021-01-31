@@ -23,6 +23,7 @@ void APortalGunActor::PickUp(AActor* OtherActor)
 	GLog->Log("Picking up");
 
 	if (Player) {
+		Player->SetHaveGravityGun(true);
 		GunMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		TriggerComponent->SetGenerateOverlapEvents(false);
 		GunMesh->SetRelativeScale3D(FVector(0.5f, 0.5f, 0.5f));

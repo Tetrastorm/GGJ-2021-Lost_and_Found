@@ -3,7 +3,7 @@
 
 #include "PlayerCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
-
+#include "DrawDebugHelpers.h"
 
 APlayerCharacter::APlayerCharacter()
 {
@@ -22,6 +22,8 @@ APlayerCharacter::APlayerCharacter()
 
 	Speaker = CreateDefaultSubobject<UAudioComponent>(TEXT("Player Speaker"));
 	Speaker->AttachTo(RootComponent);
+
+	bHaveGravityGun = false;
 }
 
 bool APlayerCharacter::GetSprintStatus()
@@ -47,6 +49,16 @@ bool APlayerCharacter::GetDeathStatus()
 bool APlayerCharacter::GetTargetingStatus()
 {
 	return bTargetingAction;
+}
+
+void APlayerCharacter::SetHaveGravityGun(bool value)
+{
+	bHaveGravityGun = value;
+}
+
+bool APlayerCharacter::GetHaveGravityGun()
+{
+	return bHaveGravityGun;
 }
 
 void APlayerCharacter::BeginPlay()
@@ -121,5 +133,21 @@ void APlayerCharacter::Aim()
 
 void APlayerCharacter::Shot()
 {
+	if (bHaveGravityGun) {
+		FHitResult Hit;
+		float fLenght = 5000.0;
+		FCollisionQueryParams CollisionParams;
+		CollisionParams.AddIgnoredActor(this);
+		FVector StartLocation = Camera->GetComponentLocation();
+		FVector EndLocation = Camera->GetComponentLocation() + ((Camera->GetComponentRotation()).Vector() * fLenght);
 
+		GetWorld()->LineTraceSingleByChannel(Hit, StartLocation, EndLocation, ECollisionChannel::ECC_WorldStatic, CollisionParams);
+		GLog->Log(Hit.ToString());
+		if (Hit.bBlockingHit) {
+			GetWorld()->SpawnActor<APortalActor>(PortalClass, Hit.Location, FRotator::ZeroRotator);
+		}
+		else {
+			GLog->Log(this->GetName() + " : Raytracing -No Actor Hit-");
+		}
+	}
 }

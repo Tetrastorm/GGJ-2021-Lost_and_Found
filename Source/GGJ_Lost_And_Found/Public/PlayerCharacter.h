@@ -6,7 +6,7 @@
 #include "NPCCharacter.h"
 #include "Camera/CameraComponent.h"
 #include "Components/AudioComponent.h"
-#include "ItemActor.h"
+#include "PortalActor.h"
 #include "PlayerCharacter.generated.h"
 
 UCLASS()
@@ -28,6 +28,11 @@ public:
 	UFUNCTION()
 		bool GetTargetingStatus();
 
+	UFUNCTION()
+		void SetHaveGravityGun(bool value);
+	UFUNCTION()
+		bool GetHaveGravityGun();
+
 protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
@@ -48,13 +53,16 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "PlayerProperty|Component")
 		UAudioComponent* Speaker;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PlayerProperty|Inventory")
-		TArray<AItemActor *> Hands;
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon Property")
+		TSubclassOf<class APortalActor> PortalClass;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PlayerProperty|Status")
 		float fHealth;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PlayerProperty|Status")
 		float fStamina;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PlayerProperty|Status")
+		bool bHaveGravityGun;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PlayerProperty|Status")
 		bool bSprintAction;
