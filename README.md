@@ -2,9 +2,16 @@
 ## "Lost and Found"
 ## Games: Senses
 
+
+### Pitch:
+
+The player is lost in a mirror donjon, he will use a portal gun to escape of the donjon, but is random set, how player will manege to escape?
+
+---
+
 ### Evolution idea:
 
-- 1 - Créate a scroller where player search a sword
+- 1 - Create a scroller where player search a sword
 - 2 - Create a forest where player is lost and must retrieve own way with a map
 - 3 - Create a vertical labyrinth with many corridors
 - 4 - Create a vertical labyrinth with many corridors where player passe between each one with a portal system
@@ -39,9 +46,11 @@ __Keyboard:__
 - S                  => Move backward
 - Q                  => Move Left
 - D                  => Move Right
+- Mouse              => Look
 - Space              => Jump
 - LShift             => Run
 - Mouse Left Clic    => Place a portal in center of screen (if player have a portal gun)
+- Escape             => Return to main menu
 
 __Gamepad:__
 
@@ -50,6 +59,7 @@ __Gamepad:__
 - Face Bottom Button  => Jump
 - Right Trigger       => Run
 - Right Bottom Button => Place a portal in center of screen (if player have a portal gun)
+- Start Button
 
 ---
 
@@ -62,14 +72,16 @@ __Gamepad:__
 
 ### Credit:
 
-Epic Games (Paragon: Yin, Animation Starter Pack (Asset pack)):
+Epic Games (Paragon: Yin (Asset pack)):
    - Player animations
    - Portal FX
    - The engine
-   - Player texture and model 
+   - Player texture and model
+cf: https://unrealengine.com/marketplace/en-US/product/paragon-yin
 
 Ying Pei Games (Sci Fi Weapons Dark (Asset pack)):
     - Portal Gun texture and model
+cf: https://unrealengine.com/marketplace/en-US/product/sci-fi-weapons-dark
 
 Valentin Porchez:
     - Being Teleported by portal sound
