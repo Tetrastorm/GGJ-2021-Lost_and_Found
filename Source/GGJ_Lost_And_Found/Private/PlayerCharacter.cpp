@@ -49,16 +49,6 @@ bool APlayerCharacter::GetTargetingStatus()
 	return bTargetingAction;
 }
 
-void APlayerCharacter::AddToHands(AItemActor* item)
-{
-	if (Hands.Num() <= 2) {
-		Hands.Add(item);
-	} else {
-
-	}
-	
-}
-
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
@@ -86,14 +76,10 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &APlayerCharacter::Sprint);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &APlayerCharacter::Sprint);
 
-	PlayerInputComponent->BindAction("Pickup", IE_Pressed, this, &APlayerCharacter::Pickup);
-	PlayerInputComponent->BindAction("Pickup", IE_Released, this, &APlayerCharacter::Pickup);
+	PlayerInputComponent->BindAction("Aim", IE_Pressed, this, &APlayerCharacter::Aim);
+	PlayerInputComponent->BindAction("Aim", IE_Released, this, &APlayerCharacter::Aim);
 
-	PlayerInputComponent->BindAction("UseRightHand", IE_Pressed, this, &APlayerCharacter::UseRightHand);
-	PlayerInputComponent->BindAction("UseLeftHand", IE_Pressed, this, &APlayerCharacter::UseLeftHand);
-
-	PlayerInputComponent->BindAction("Targeting", IE_Pressed, this, &APlayerCharacter::Targeting);
-	PlayerInputComponent->BindAction("Targeting", IE_Released, this, &APlayerCharacter::Targeting);
+	PlayerInputComponent->BindAction("Shot", IE_Pressed, this, &APlayerCharacter::Shot);
 }
 
 void APlayerCharacter::MoveX(float value)
@@ -128,24 +114,12 @@ void APlayerCharacter::Sprint()
 	}
 }
 
-void APlayerCharacter::Pickup()
-{
-	bPickupAction = !bPickupAction;
-}
-
-void APlayerCharacter::Targeting()
+void APlayerCharacter::Aim()
 {
 	bTargetingAction = !bTargetingAction;
 }
 
-void APlayerCharacter::UseRightHand()
+void APlayerCharacter::Shot()
 {
-	if (Hands.Num() == 1) {
-		Hands[0]->Use();
-	}
-}
 
-void APlayerCharacter::UseLeftHand()
-{
-	
 }

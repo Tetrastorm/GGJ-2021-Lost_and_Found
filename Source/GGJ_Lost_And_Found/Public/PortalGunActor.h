@@ -19,6 +19,8 @@ public:
 	virtual void Use() override;
 
 protected:
+	virtual void PickUp(AActor* OtherActor) override;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Portal Gun Property|Visual")
 		USkeletalMeshComponent* GunMesh;
 };

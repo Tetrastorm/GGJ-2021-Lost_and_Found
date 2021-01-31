@@ -16,7 +16,7 @@ public:
 	// Sets default values for this actor's properties
 	AItemActor();
 
-	void PickUp(AActor* OtherActor);
+	virtual void PickUp(AActor* OtherActor);
 	
 	UFUNCTION()
 		void TriggerEnter(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComponent, int32 OtherBodyIdex, bool dFromSweep, const FHitResult& SweepResult);

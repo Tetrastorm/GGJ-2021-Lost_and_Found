@@ -2,6 +2,7 @@
 
 
 #include "PortalGunActor.h"
+#include "PlayerCharacter.h"
 
 
 APortalGunActor::APortalGunActor()
@@ -14,4 +15,19 @@ APortalGunActor::APortalGunActor()
 void APortalGunActor::Use()
 {
 
+}
+
+void APortalGunActor::PickUp(AActor* OtherActor)
+{
+	APlayerCharacter* Player = Cast<APlayerCharacter>(OtherActor);
+	GLog->Log("Picking up");
+
+	if (Player) {
+		GunMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		TriggerComponent->SetGenerateOverlapEvents(false);
+		GunMesh->SetRelativeScale3D(FVector(0.5f, 0.5f, 0.5f));
+		GunMesh->AttachToComponent(Player->GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("Weapon_Socket"));
+		RootComponent->SetRelativeLocation(FVector::ZeroVector);
+		GLog->Log(Player->GetName() + " Picking up : " + this->GetName());
+	}
 }

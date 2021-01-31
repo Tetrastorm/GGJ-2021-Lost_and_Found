@@ -28,8 +28,6 @@ public:
 	UFUNCTION()
 		bool GetTargetingStatus();
 
-	void AddToHands(AItemActor* item);
-
 protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
@@ -41,12 +39,9 @@ protected:
 	void Jump();
 
 	void Sprint();
-	void Pickup();
 
-	void Targeting();
-
-	void UseRightHand();
-	void UseLeftHand();
+	void Aim();
+	void Shot();
 
 	UPROPERTY(EditDefaultsOnly, Category = "PlayerProperty|Component")
 		UCameraComponent* Camera;

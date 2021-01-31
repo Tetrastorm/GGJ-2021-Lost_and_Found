@@ -32,8 +32,10 @@ void AItemActor::PickUp(AActor* OtherActor)
 
 	if (Player) {
 		if (Player->GetPickupStatus()) {
+			TriggerComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 			TriggerComponent->SetGenerateOverlapEvents(false);
-			Player->AddToHands(this);
+			AttachToComponent(Player->GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("Weapon_Socket"));
+			RootComponent->SetRelativeLocation(FVector::ZeroVector);
 			GLog->Log(Player->GetName() + " Picking up : " + this->GetName());
 		}
 	}
