@@ -31,6 +31,26 @@
 - In the decompressed folder, clic on .exe file
 - Enjoy
 
+### Keybinding
+
+__Keyboard:__
+
+- Z                  => Move Forward
+- S                  => Move backward
+- Q                  => Move Left
+- D                  => Move Right
+- Space              => Jump
+- LShift             => Run
+- Mouse Left Clic    => Place a portal in center of screen (if player have a portal gun)
+
+__Gamepad:__
+
+- Left Thumbstick     => Move
+- Right Thumbstick    => Look
+- Face Bottom Button  => Jump
+- Right Trigger       => Run
+- Right Bottom Button => Place a portal in center of screen (if player have a portal gun)
+
 ---
 
 ### Known Issues:
@@ -50,6 +70,9 @@ Epic Games (Paragon: Yin, Animation Starter Pack (Asset pack)):
 
 Ying Pei Games (Sci Fi Weapons Dark (Asset pack)):
     - Portal Gun texture and model
+
+Valentin Porchez:
+    - Being Teleported by portal sound
 
 All content from Ying Pei Games and Epic Games are only licensied for UE4 usage exclusively.
 

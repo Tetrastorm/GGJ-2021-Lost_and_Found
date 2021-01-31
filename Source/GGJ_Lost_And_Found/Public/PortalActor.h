@@ -32,6 +32,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Portal|Visual")
 		UParticleSystemComponent* SecondaryPortalParticle;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Portal|Sound")
+		UAudioComponent* Speaker;
+
 	UPROPERTY(EditAnywhere, Category = "Portal|Gameplay")
 		FName LevelToLoad;
 

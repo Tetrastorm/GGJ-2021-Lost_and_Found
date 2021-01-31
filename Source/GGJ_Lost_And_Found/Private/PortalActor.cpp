@@ -37,6 +37,12 @@ APortalActor::APortalActor()
 	SecondaryPortalParticle->SetRelativeLocation(FVector::ZeroVector);
 	SecondaryPortalParticle->SetHiddenInGame(false);
 
+	Speaker = CreateDefaultSubobject<UAudioComponent>(TEXT("Player Speaker"));
+	Speaker->SetupAttachment(RootComponent);
+	Speaker->SetRelativeLocationAndRotation(FVector::ZeroVector, FRotator::ZeroRotator);
+	Speaker->bAutoActivate = false;
+	Speaker->SetHiddenInGame(false);
+
 	bCanTrigger = true;
 }
 
@@ -60,6 +66,7 @@ void APortalActor::TriggerEnter(class UPrimitiveComponent* HitComponent, class A
 
 					if (PortalActor != this && PortalActor[i].LevelToLoad == "") {
 						PortalActor->bCanTrigger = false;
+						Speaker->Play();
 						PlayerCharacter->SetActorLocation(PortalActor->GetActorLocation());
 						break;
 					}
